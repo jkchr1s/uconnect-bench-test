@@ -36,7 +36,7 @@ messages = [
 tx_ids = {msg.arbitration_id for msg in messages}
 
 print(f"Connecting to CANable interface on {COM_PORT} at bitrate {BITRATE}")
-bus = can.interface.Bus(bustype='slcan', channel=COM_PORT, bitrate=BITRATE)
+bus = can.interface.Bus(interface='slcan', channel=COM_PORT, bitrate=BITRATE)
 
 # function to create a worker thread to log messages (omitting our own)
 def receive_worker(can_bus, tx_filter_set):
